@@ -1,0 +1,9 @@
+[settleraffix]
+btngem=一键开关拿宝石
+btnflower=拿花
+btnhired=拿钱
+tipgem=一键开关：全部宝石收藏家停止/开始从仓库拿宝石
+tipflower=一键开关：全部鲜花收藏家停止/开始从仓库拿花
+tiphired=一键开关：全部雇佣工停止/开始从仓库拿金币
+appliedoff=已关闭 <count> 名定居者的仓库自取
+appliedon=已开启 <count> 名定居者的仓库自取

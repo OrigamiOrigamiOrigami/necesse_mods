@@ -1,0 +1,12 @@
+[controls]
+autotrashtoggle=Toggle auto trash
+autotrashopen=Open auto trash list
+autotrashadd=Add hovered item to auto trash
+
+[autotrash]
+title=Auto Trash
+hint=Drop an item in the slot to blacklist. Click an icon to remove.
+empty=(empty blacklist)
+enabled=Auto trash: ON
+disabled=Auto trash: OFF
+added=Blacklisted:

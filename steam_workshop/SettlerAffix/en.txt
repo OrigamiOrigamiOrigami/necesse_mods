@@ -1,0 +1,7 @@
+Settlement tools for settler affixes.
+
+• On the settlement Commands panel: three buttons to stop/start ALL Gem Collectors, Flower Collectors, or Hired Hands taking items from storage
+
+Compatible with Necesse 1.3.3.
+Author: Origami
+Language: English / Simplified Chinese

@@ -1,0 +1,25 @@
+[controls]
+openitembrowser=打开物品浏览器
+craftingguidelookup=合成指南查询（悬停物品）
+
+[itembrowser]
+browsertitle=物品浏览器
+browserhint=输入物品名或 ID（忽略空格与大小写）。
+browserempty=没有匹配的物品。
+browserrecipes=合成：
+browsershops=NPC 出售：
+browserdrops=怪物掉落：
+browsertreasure=宝箱 / 宝藏：
+browserbiome=生物群落采集：
+browserfishing=钓鱼：
+browserspawns=出现于：
+browserchallenges=日志挑战：
+browsertips=其他：
+browsercritter=野生动物 / 小动物
+browsermobdrops=该生物掉落：
+browserfireflycatch=用捕虫网捕捉。
+browserfireflyyellow=地表夜间（普通黄萤火虫）。
+browserfireflygreen=洞穴层。
+browserfireflyblue=深层洞穴（非地表、非普通洞穴层）。
+browserfireflyany=萤火虫：地表黄、洞穴绿、深层蓝。
+browsunknown=未找到来源（商店/掉落/宝箱/配方/钓鱼/出现地）。部分随机库存或特殊生成可能仍无法索引。

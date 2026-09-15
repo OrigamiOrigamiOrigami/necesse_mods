@@ -1,0 +1,11 @@
+[controls]
+veinminertoggle=Toggle vein mining
+veinminerconfig=Open vein mining config
+
+[veinminer]
+title=Vein Miner
+hint=Drop ore/object items to add. Click icon to remove.
+allores=Chain all ores
+empty=(no extras — ores only if checked above)
+enabled=Vein mining: ON
+disabled=Vein mining: OFF

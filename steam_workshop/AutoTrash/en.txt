@@ -1,0 +1,11 @@
+Automatically move blacklisted items to the trash slot.
+
+• N — toggle auto trash on/off
+• O — open blacklist list
+• Delete — add hovered inventory item to blacklist
+• Drop items into the list UI; click an icon to remove
+
+Compatible with Necesse 1.3.3.
+Author: Origami
+Language: English / 简体中文
+Controls are remappable in Settings.

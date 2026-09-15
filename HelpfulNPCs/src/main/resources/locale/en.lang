@@ -1,0 +1,21 @@
+[mob]
+hntrinketvendormob=Trinket Vendor
+hnpotionvendormob=Potion Vendor
+hnvinylvendormob=Vinyl Vendor
+hnexoticvendormob=Exotic Merchant
+hntrinketvendormobname=<name> the Trinket Vendor
+hnpotionvendormobname=<name> the Potion Vendor
+hnvinylvendormobname=<name> the Vinyl Vendor
+hnexoticvendormobname=<name> the Exotic Merchant
+
+[settler]
+hntrinketvendor=Trinket Vendor
+hnpotionvendor=Potion Vendor
+hnvinylvendor=Vinyl Vendor
+hnexoticvendor=Exotic Merchant
+
+[helpfulnpcs]
+trinkettip=After defeating Pirate Captain, arrives as a recruitable visitor. Sells drop/chest trinkets only; stock and prices unlock by boss progress.
+potiontip=After defeating Pirate Captain, arrives as a recruitable visitor. Potions unlock by boss progress.
+vinyltip=Arrives as a settlement visitor. Sells music vinyls and a portable music player.
+exotictip=Arrives as a recruitable visitor. Same shop shelf as the vanilla Exotic Merchant, refreshed daily.

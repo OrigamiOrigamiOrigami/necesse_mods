@@ -1,0 +1,21 @@
+[mob]
+hntrinketvendormob=饰品商人
+hnpotionvendormob=药水商人
+hnvinylvendormob=黑胶商人
+hnexoticvendormob=异域商人
+hntrinketvendormobname=<name> 饰品商人
+hnpotionvendormobname=<name> 药水商人
+hnvinylvendormobname=<name> 黑胶商人
+hnexoticvendormobname=<name> 异域商人
+
+[settler]
+hntrinketvendor=饰品商人
+hnpotionvendor=药水商人
+hnvinylvendor=黑胶商人
+hnexoticvendor=异域商人
+
+[helpfulnpcs]
+trinkettip=击败海盗船长后，会作为可招募访客出现。只卖掉落/宝箱饰品，价格与货架按 Boss 进度解锁。
+potiontip=击败海盗船长后，会作为可招募访客出现。药水按 Boss 进度解锁。
+vinyltip=会作为定居点访客出现。出售音乐黑胶与便携音乐播放器。
+exotictip=会作为可招募访客出现。货架逻辑与原版异域商人相同，并且每日刷新货架。

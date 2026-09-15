@@ -1,0 +1,25 @@
+[controls]
+openitembrowser=Open Item Browser
+craftingguidelookup=Crafting Guide lookup (hovered item)
+
+[itembrowser]
+browsertitle=Item Browser
+browserhint=Type an item name or ID. ~ opens this window. With a Crafting Guide, hover an item and press U to see uses. Wildlife: search the critter item (firefly, rabbit, etc.).
+browserempty=No matching items.
+browserrecipes=Crafted at:
+browsershops=Sold by NPC:
+browserdrops=Dropped by:
+browsertreasure=Chests / treasure:
+browserbiome=Biome loot:
+browserfishing=Fishing:
+browserspawns=Spawns in:
+browserchallenges=Journal challenge:
+browsertips=Other:
+browsercritter=Critter / wildlife
+browsermobdrops=This mob drops:
+browserfireflycatch=Catch with a bug net.
+browserfireflyyellow=Surface at night (yellow).
+browserfireflygreen=Cave layer (green).
+browserfireflyblue=Deep caves (not surface / not normal cave).
+browserfireflyany=Fireflies: yellow on surface, green in caves, blue in deep caves.
+browsunknown=No source found (shops/drops/chests/recipes/fishing/spawns). Some random stock or special generators may still be missing.

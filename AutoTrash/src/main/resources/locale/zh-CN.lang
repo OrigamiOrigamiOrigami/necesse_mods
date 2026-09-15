@@ -1,0 +1,12 @@
+[controls]
+autotrashtoggle=开关自动垃圾桶
+autotrashopen=打开自动垃圾桶名单
+autotrashadd=将悬停物品加入黑名单
+
+[autotrash]
+title=自动垃圾桶
+hint=把物品放进右侧格子加入黑名单；点击图标可取消。
+empty=（黑名单为空）
+enabled=自动垃圾桶：开
+disabled=自动垃圾桶：关
+added=已加入黑名单：

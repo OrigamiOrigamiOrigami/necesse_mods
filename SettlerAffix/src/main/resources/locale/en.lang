@@ -1,0 +1,9 @@
+[settleraffix]
+btngem=Toggle take gems
+btnflower=Flowers
+btnhired=Coins
+tipgem=One-click: stop/start ALL Gem Collectors taking gems from storage
+tipflower=One-click: stop/start ALL Flower Collectors taking flowers from storage
+tiphired=One-click: stop/start ALL Hired Hands taking coins from storage
+appliedoff=Stopped storage collect for <count> settlers
+appliedon=Allowed storage collect for <count> settlers

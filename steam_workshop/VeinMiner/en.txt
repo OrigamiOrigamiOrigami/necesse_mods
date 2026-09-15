@@ -1,0 +1,11 @@
+Chain-mine connected ore veins (and optional extra objects).
+
+• Enabled by default
+• V — toggle vein mining on/off
+• K — open config (all ores + extra objects)
+• Uses the same idea as vanilla cluster mining
+
+Compatible with Necesse 1.3.3.
+Author: Origami
+Language: English / 简体中文
+Controls are remappable in Settings.

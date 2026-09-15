@@ -1,0 +1,19 @@
+# Build outputs
+**/build/
+*.class
+*.jar
+
+# Local Steam / IDE
+steam_appid.txt
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Game configs should stay in AppData, not here
+*.cfg

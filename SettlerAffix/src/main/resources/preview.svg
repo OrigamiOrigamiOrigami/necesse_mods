@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+
+  <rect width="512" height="512" fill="#1b2433"/>
+  <rect x="22" y="22" width="468" height="468" rx="36" fill="#243044"/>
+  <rect x="22" y="22" width="468" height="468" rx="36" fill="none" stroke="#0d1218" stroke-width="18"/>
+  <rect x="40" y="40" width="432" height="432" rx="26" fill="none" stroke="#3d4d64" stroke-width="6"/>
+  <rect x="52" y="52" width="408" height="408" rx="20" fill="none" stroke="#d4b06a" stroke-width="3"/>
+
+  <circle cx="228" cy="168" r="62" fill="#efc56a"/>
+  <circle cx="210" cy="156" r="10" fill="#3a2a10" opacity="0.25"/>
+  <circle cx="246" cy="156" r="10" fill="#3a2a10" opacity="0.25"/>
+  <path d="M158 244 Q158 220 196 220 H260 Q298 220 298 244 V372 Q228 404 158 372 Z" fill="#4db6a0"/>
+  <rect x="136" y="248" width="40" height="92" rx="18" fill="#3a9e8a"/>
+  <rect x="280" y="248" width="40" height="92" rx="18" fill="#3a9e8a"/>
+  <!-- gem -->
+  <rect x="322" y="108" width="90" height="74" rx="18" fill="#1c2636" stroke="#f0ead8" stroke-width="6"/>
+  <polygon points="367,124 390,162 344,162" fill="#5ec8ff"/>
+  <!-- flower -->
+  <rect x="322" y="198" width="90" height="74" rx="18" fill="#1c2636" stroke="#f0ead8" stroke-width="6"/>
+  <circle cx="367" cy="244" r="18" fill="#e07a66"/>
+  <ellipse cx="367" cy="234" rx="11" ry="16" fill="#7ad47a"/>
+  <!-- coin -->
+  <rect x="322" y="288" width="90" height="74" rx="18" fill="#1c2636" stroke="#f0ead8" stroke-width="6"/>
+  <circle cx="367" cy="325" r="20" fill="#efc56a"/>
+  <circle cx="367" cy="325" r="11" fill="none" stroke="#9a6a20" stroke-width="4"/>
+    
+</svg>

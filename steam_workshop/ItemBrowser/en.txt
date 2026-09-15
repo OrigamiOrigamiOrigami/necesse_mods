@@ -1,0 +1,11 @@
+Look up where items come from.
+
+• ~ — open Item Browser
+• U — with a Crafting Guide open, look up the hovered item
+• Search by item name or ID
+• Shows recipes, NPC shops, drops, chests, fishing, and spawn info
+
+Compatible with Necesse 1.3.3.
+Author: Origami
+Language: English / 简体中文
+Controls are remappable in Settings.

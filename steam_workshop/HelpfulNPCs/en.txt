@@ -1,0 +1,12 @@
+Adds helpful vendor settlers to your settlement:
+
+• Trinket Vendor — drop/chest trinkets; stock and prices unlock with boss progress
+• Potion Vendor — potions unlock with boss progress
+• Vinyl Vendor — music vinyls and a portable music player
+• Exotic Merchant — same shelf as the vanilla exotic merchant, refreshed daily
+
+Trinket and Potion vendors become recruitable visitors after defeating the Pirate Captain.
+
+Compatible with Necesse 1.3.3.
+Author: Origami
+Language: English / 简体中文

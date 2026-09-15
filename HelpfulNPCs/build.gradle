@@ -1,0 +1,83 @@
+plugins {
+    id 'java'
+}
+
+project.ext.modID = "origami.helpfulnpcs"
+project.ext.modName = "Helpful NPCs"
+project.ext.modVersion = "1.0"
+project.ext.gameVersion = "1.3.3"
+project.ext.modDescription = "Helpful vendor NPCs plus an item browser for recipes, mob drops, and chests."
+project.ext.author = "Origami"
+project.ext.clientside = false
+
+def gameDirectory = "D:/SteamLibrary/steamapps/common/Necesse"
+def jarName = "${project.ext.modName.replace(" ", "")}-${project.ext.gameVersion}-${project.ext.modVersion}"
+
+group project.ext.modID
+version project.ext.modVersion
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    libDepends
+}
+
+sourceSets.main.output.resourcesDir = file("build/mod/resources/")
+sourceSets.main.java.getDestinationDirectory().set(file("build/mod/"))
+sourceSets.main.compileClasspath += configurations.libDepends
+def buildLocation = "build/jar/"
+
+compileJava.options.encoding = "UTF-8"
+
+println "Checking for the Necesse.jar inside: ${gameDirectory}"
+if (!file(gameDirectory + "/Necesse.jar").exists()) {
+    throw new Exception("Could not find game install directory. Make sure it is correct in build.gradle file.")
+} else {
+    println "Success"
+}
+
+dependencies {
+    implementation files(gameDirectory + "/Necesse.jar")
+    implementation fileTree(gameDirectory + "/lib/")
+    implementation fileTree("./mods/")
+    libDepends files()
+}
+
+tasks.register('createModInfoFile', JavaExec) {
+    group "necesse"
+    classpath = files(gameDirectory + "/Necesse.jar")
+    getMainClass().set("CreateModInfoFile")
+    args "-file", "${sourceSets.main.java.getClassesDirectory().get()}/mod.info",
+            "-id", "${project.ext.modID}",
+            "-name", "${project.ext.modName}",
+            "-version", "${project.ext.modVersion}",
+            "-gameVersion", "${project.ext.gameVersion}",
+            "-description", "${project.ext.modDescription}",
+            "-author", "${project.ext.author}",
+            "-clientside", "${project.ext.clientside}",
+            "-dependencies", "",
+            "-optionalDependencies", ""
+}
+classes.dependsOn("createModInfoFile")
+
+tasks.register('buildModJar', Jar) {
+    group "necesse"
+    dependsOn "classes", "createModInfoFile"
+    doFirst {
+        fileTree(dir: buildLocation).exclude("${jarName}.jar").visit { FileVisitDetails details ->
+            delete details.file
+        }
+    }
+    from sourceSets.main.java.getClassesDirectory()
+    from sourceSets.main.output.resourcesDir
+    from configurations.libDepends.collect { it.isDirectory() ? it : zipTree(it) }
+    setArchiveFileName("${jarName}.jar")
+    setDestinationDirectory(file(buildLocation))
+}

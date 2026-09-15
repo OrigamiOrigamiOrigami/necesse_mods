@@ -1,0 +1,11 @@
+[controls]
+veinminertoggle=开关连锁挖矿
+veinminerconfig=打开连锁挖矿配置
+
+[veinminer]
+title=连锁挖矿
+hint=放入矿石/方块物品加入名单；点击图标取消。
+allores=连锁全部矿石
+empty=（无额外项 — 勾选上方则仍连锁所有矿）
+enabled=连锁挖矿：开
+disabled=连锁挖矿：关
