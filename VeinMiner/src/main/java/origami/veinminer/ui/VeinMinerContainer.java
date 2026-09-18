@@ -10,6 +10,7 @@ import necesse.inventory.PlayerTempInventory;
 import necesse.inventory.container.Container;
 import necesse.inventory.container.customAction.BooleanCustomAction;
 import necesse.inventory.container.customAction.EmptyCustomAction;
+import necesse.inventory.container.customAction.IntCustomAction;
 import necesse.inventory.container.slots.ContainerSlot;
 import origami.veinminer.VeinMinerMod;
 
@@ -18,7 +19,10 @@ public class VeinMinerContainer extends Container {
     public final int ADD_SLOT;
     public final PlayerTempInventory addInv;
     public final EmptyCustomAction consumeAddSlot;
+    public final BooleanCustomAction setEnabled;
     public final BooleanCustomAction setAllOres;
+    public final BooleanCustomAction setAllTrees;
+    public final IntCustomAction setMaxChain;
 
     public VeinMinerContainer(NetworkClient client, int uniqueSeed, Packet content) {
         super(client, uniqueSeed);
@@ -44,6 +48,16 @@ public class VeinMinerContainer extends Container {
             }
         });
 
+        this.setEnabled = registerAction(new BooleanCustomAction() {
+            @Override
+            protected void run(boolean value) {
+                if (VeinMinerMod.SETTINGS != null) {
+                    VeinMinerMod.SETTINGS.enabled = value;
+                    VeinMinerMod.saveSettings();
+                }
+            }
+        });
+
         this.setAllOres = registerAction(new BooleanCustomAction() {
             @Override
             protected void run(boolean value) {
@@ -51,6 +65,33 @@ public class VeinMinerContainer extends Container {
                     VeinMinerMod.SETTINGS.allOres = value;
                     VeinMinerMod.saveSettings();
                 }
+            }
+        });
+
+        this.setAllTrees = registerAction(new BooleanCustomAction() {
+            @Override
+            protected void run(boolean value) {
+                if (VeinMinerMod.SETTINGS != null) {
+                    VeinMinerMod.SETTINGS.allTrees = value;
+                    VeinMinerMod.saveSettings();
+                }
+            }
+        });
+
+        this.setMaxChain = registerAction(new IntCustomAction() {
+            @Override
+            protected void run(int value) {
+                if (VeinMinerMod.SETTINGS == null) {
+                    return;
+                }
+                if (value < 8) {
+                    value = 8;
+                }
+                if (value > 512) {
+                    value = 512;
+                }
+                VeinMinerMod.SETTINGS.maxChain = value;
+                VeinMinerMod.saveSettings();
             }
         });
     }

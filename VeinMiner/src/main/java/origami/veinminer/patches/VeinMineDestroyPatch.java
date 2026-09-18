@@ -9,13 +9,15 @@ import necesse.level.gameObject.GameObject;
 import necesse.level.maps.Level;
 import net.bytebuddy.asm.Advice;
 import origami.veinminer.VeinMinerMod;
+import origami.veinminer.VeinMinerSettings;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * Mirrors ChanceToMineFullClusterLevelEvent: BFS on 4-adjacent same-type objects.
+ * Ore/stone: 4-adjacent BFS (vanilla cluster style).
+ * Trees: Chebyshev-radius BFS so a forest patch chains even when trees are not tile-adjacent.
  */
 @ModMethodPatch(target = Level.class, name = "onObjectDestroyed", arguments = {
         GameObject.class, int.class, int.class, int.class,
@@ -30,10 +32,11 @@ public class VeinMineDestroyPatch {
         }
     };
 
+    public static final Point[] TREE_NEIGHBORS = buildTreeNeighbors(VeinMinerSettings.TREE_CONNECT_RADIUS);
+
     @Advice.OnMethodExit
     static void onExit(@Advice.This Level level,
                        @Advice.Argument(0) GameObject destroyed,
-                       @Advice.Argument(1) int layer,
                        @Advice.Argument(2) int tileX,
                        @Advice.Argument(3) int tileY,
                        @Advice.Argument(5) ServerClient client) {
@@ -57,7 +60,8 @@ public class VeinMineDestroyPatch {
         }
 
         int max = VeinMinerMod.SETTINGS.maxChain;
-        int targetId = destroyed.getID();
+        boolean treeMode = VeinMinerSettings.isTreeLike(destroyed);
+        Point[] offsets = treeMode ? TREE_NEIGHBORS : Level.adjacentGettersNotDiagonal;
 
         LinkedList<Point> queue = new LinkedList<Point>();
         PointHashSet visited = new PointHashSet();
@@ -69,17 +73,18 @@ public class VeinMineDestroyPatch {
         try {
             while (!queue.isEmpty() && broken < max) {
                 Point p = queue.removeFirst();
-                for (Point off : Level.adjacentGettersNotDiagonal) {
+                for (int i = 0; i < offsets.length; i++) {
+                    Point off = offsets[i];
                     int nx = p.x + off.x;
                     int ny = p.y + off.y;
                     if (visited.contains(nx, ny)) {
                         continue;
                     }
                     visited.add(nx, ny);
-                    if (!isSameChainTarget(level, layer, nx, ny, targetId)) {
+                    if (!isSameChainTarget(level, nx, ny, destroyed, treeMode)) {
                         continue;
                     }
-                    ObjectDamageResult result = level.entityManager.destroyObjectOverride(layer, nx, ny);
+                    ObjectDamageResult result = level.entityManager.destroyObjectOverride(0, nx, ny);
                     broken++;
                     if (result != null && result.destroyed) {
                         queue.add(new Point(nx, ny));
@@ -95,20 +100,40 @@ public class VeinMineDestroyPatch {
     }
 
     // Must be public: Advice is inlined into Level.
-    public static boolean isSameChainTarget(Level level, int layer, int x, int y, int targetId) {
-        GameObject obj = level.getObject(layer, x, y);
-        if (obj == null || obj.getID() != targetId) {
+    public static boolean isSameChainTarget(Level level, int x, int y, GameObject destroyed, boolean treeMode) {
+        GameObject obj = level.getObject(x, y);
+        if (obj == null || destroyed == null) {
             return false;
         }
         if (VeinMinerMod.SETTINGS == null || !VeinMinerMod.SETTINGS.canChain(obj)) {
             return false;
         }
+        if (!VeinMinerMod.SETTINGS.sameChainVein(destroyed, obj)) {
+            return false;
+        }
         if (level.isProtected(x, y)) {
             return false;
         }
-        if (level.objectLayer != null && level.objectLayer.isPlayerPlaced(x, y)) {
+        // Allow player-grown trees to chain; keep the check for ores/rocks/objects.
+        if (!treeMode && level.objectLayer != null && level.objectLayer.isPlayerPlaced(x, y)) {
             return false;
         }
         return true;
+    }
+
+    public static Point[] buildTreeNeighbors(int radius) {
+        if (radius < 1) {
+            radius = 1;
+        }
+        ArrayList<Point> list = new ArrayList<Point>();
+        for (int dy = -radius; dy <= radius; dy++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                if (dx == 0 && dy == 0) {
+                    continue;
+                }
+                list.add(new Point(dx, dy));
+            }
+        }
+        return list.toArray(new Point[list.size()]);
     }
 }

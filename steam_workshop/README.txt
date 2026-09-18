@@ -37,4 +37,4 @@ Necesse Steam Workshop 上架清单（Origami 五件套）
 
 版本
 ----
-游戏 1.3.3 / 模组 1.0 / 作者 Origami
+游戏 1.3.3 / 模组见各文件夹 / 作者 Origami

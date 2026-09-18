@@ -52,16 +52,27 @@ def main():
     if not preview.is_file():
         sys.exit("Missing preview.png: %s" % preview)
 
-    # Verify preview is inside the built jar
-    jars = list(jar_dir.glob("*.jar"))
+    # Verify preview is inside the built jar.
+    # Dev mod folder may contain only preview.png plus exactly one jar.
+    jars = sorted(jar_dir.glob("*.jar"), key=lambda p: p.stat().st_mtime, reverse=True)
     if not jars:
         sys.exit("No jar in %s" % jar_dir)
+    keep = jars[0]
+    for extra in jars[1:]:
+        print("Removing extra jar (dev folder allows only one):", extra.name)
+        extra.unlink()
+    for extra in jar_dir.iterdir():
+        if extra.name == "preview.png" or extra == keep:
+            continue
+        if extra.is_file():
+            print("Removing extra file from dev folder:", extra.name)
+            extra.unlink()
     import zipfile
-    with zipfile.ZipFile(jars[0]) as z:
+    with zipfile.ZipFile(keep) as z:
         names = z.namelist()
         if "resources/preview.png" not in names:
-            sys.exit("Jar missing resources/preview.png: %s" % jars[0])
-        print("preview OK in", jars[0].name)
+            sys.exit("Jar missing resources/preview.png: %s" % keep)
+        print("preview OK in", keep.name)
 
     # steam_appid.txt required next to working dir for StartSteamClient
     appid = ROOT / "steam_appid.txt"

@@ -4,8 +4,12 @@ veinminerconfig=打开连锁挖矿配置
 
 [veinminer]
 title=连锁挖矿
-hint=放入矿石/方块物品加入名单；点击图标取消。
+hint1=放入矿石/石块/原木加入名单
+hint2=树木按附近一片区域连锁。点击图标移除。
+enabledoption=启用连锁挖矿
 allores=连锁全部矿石
-empty=（无额外项 — 勾选上方则仍连锁所有矿）
+alltrees=连锁全部树木
+maxchain=连锁上限
+empty=（名单为空）
 enabled=连锁挖矿：开
 disabled=连锁挖矿：关

@@ -10,14 +10,14 @@ JAVA_HOME = Path(r"E:\Java") if Path(r"E:\Java\bin\javac.exe").exists() else Pat
 JAVAC, JAR = JAVA_HOME / "bin" / "javac.exe", JAVA_HOME / "bin" / "jar.exe"
 OUT, JAR_OUT = ROOT / "build" / "mod", ROOT / "build" / "jar"
 MODS = Path(os.environ["APPDATA"]) / "Necesse" / "mods"
-JAR_NAME = "VeinMiner-1.3.3-1.0.jar"
+JAR_NAME = "VeinMiner-1.3.3-1.1.jar"
 MOD_INFO = """{
 \tid = origami.veinminer,
 \tname = Vein Miner,
-\tversion = 1.0,
+\tversion = 1.1,
 \tgameVersion = 1.3.3,
 \tauthor = Origami,
-\tdescription = Chain-mine ore veins (default ON). V toggle\\, K config.,
+\tdescription = Chain-mine ores\\, rocks\\, and trees. V toggle\\, K config.,
 \tclientside = false
 }
 """

@@ -1,8 +1,10 @@
-Chain-mine connected ore veins (and optional extra objects).
+Chain-mine connected ore veins (and optional extras).
 
 • Enabled by default
 • V — toggle vein mining on/off
-• K — open config (all ores + extra objects)
+• K — open config (all ores, all trees, extra list, chain limit)
+• Drop ore items to chain that ore; drop stone blocks to chain those rocks; drop logs to chain those trees
+• Trees chain a nearby patch
 • Uses the same idea as vanilla cluster mining
 
 Compatible with Necesse 1.3.3.

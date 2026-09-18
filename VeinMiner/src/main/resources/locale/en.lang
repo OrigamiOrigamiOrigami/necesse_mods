@@ -4,8 +4,12 @@ veinminerconfig=Open vein mining config
 
 [veinminer]
 title=Vein Miner
-hint=Drop ore/object items to add. Click icon to remove.
+hint1=Drop ores, stone blocks, or logs to whitelist
+hint2=Trees chain a nearby patch. Click icon to remove.
+enabledoption=Enable vein mining
 allores=Chain all ores
-empty=(no extras — ores only if checked above)
+alltrees=Chain all trees
+maxchain=Chain limit
+empty=(list empty)
 enabled=Vein mining: ON
 disabled=Vein mining: OFF
