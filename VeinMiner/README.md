@@ -5,7 +5,7 @@ Necesse mod: chain-mine connected ore veins (vanilla-style cluster mining).
 | Field | Value |
 |-------|--------|
 | Mod ID | `origami.veinminer` |
-| Version | 1.0 |
+| Version | 1.1 |
 | Game | 1.3.3 |
 | Author | Origami |
 | Clientside | false |
@@ -37,5 +37,6 @@ Workshop text: `../steam_workshop/VeinMiner/`.
 
 ## Notes
 
+- Config: ore drop items whitelist by `droppedOre`; placeable objects whitelist by object ID.
 - Method patches: after game updates, retest mining + hotkeys first.
 - Advice helpers used from vanilla classes must stay **public** (no lambdas in Advice).
